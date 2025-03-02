@@ -13,6 +13,9 @@
       </a>
     {% endfor %}
     <div>
+      <a href="{{ get_page(path=current_path, lang="fr") }}"> fr </a>
+    </div>
+    <div>
       <input type="checkbox" id="theme-toggle" style="display: none;">
       <label for="theme-toggle" id="theme-toggle-label"><svg id="theme-icon" class="icons"><use href="{{ get_url(path='/icons.svg#lightMode', trailing_slash=false) | safe }}"></use></svg></label>
       <audio id="theme-sound">
