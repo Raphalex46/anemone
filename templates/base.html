@@ -23,8 +23,10 @@
         {% set current_lang = config.default_language %}
         {% if page %}
         {% set current_lang = page.lang %}
+        {% set trans = page.translations %}
         {% elif section %}
         {% set current_lang = section.lang %}
+        {% set trans = section.translations %}
         {% endif %}
         <nav id="nav-bar">
             {% for nav_item in config.extra.header_nav %}
@@ -43,6 +45,13 @@
                     <use id="theme-icon"></use>
                 </svg>
             </div>
+            {% if trans is defined %}
+              {% for lang in trans %}
+                {% if lang.lang != current_lang %}
+                  <a href={{ lang.permalink }}> [{{ lang.lang }}] </a>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
         </nav>
 
         <main>
